@@ -24,7 +24,7 @@ export default function Header() {
     const activePathname = usePathname()
 
     return (
-        <header className="flex justify-between items-center border-bborder-white/10 h-14 px-3 sm:px-9">
+        <header className="flex justify-between items-center border-b border-white/10 h-14 px-3 sm:px-9">
 
             <Logo />
 

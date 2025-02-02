@@ -1,23 +1,34 @@
 import Image from "next/image";
 import H1 from "@/components/h1";
 import React from "react";
+import {capitalize} from "@/lib/utils";
+import {Metadata} from "next";
 
-type EventPageProps = {
+type Props = {
     params: {
         slug: string;
     }
 }
 
-export default async function EventPage({params}: EventPageProps) {
 
-    const slug = params.slug
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const slug = params.slug;
 
     const response = await fetch(
         `https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
     );
-
     const event = await response.json();
+    return {
+       title: event.name,
+    };
+}
 
+export default async function EventPage({params}: Props) {
+    const slug = params.slug
+    const response = await fetch(
+        `https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
+    );
+    const event = await response.json();
     return (
         <main>
             <section className="relative overflow-hidden flex justify-center items-center py-14 md:py-20">
