@@ -14,9 +14,19 @@ export default async function EventPage({params}: EventPageProps) {
 
     const data = await response.json();
 
-    console.log(data)
+    // console.log(data)
 
     return (
-        <main>Event Page</main>
+        <main>
+
+            <section>
+
+            </section>
+
+            <div>
+
+            </div>
+
+        </main>
     )
 }
