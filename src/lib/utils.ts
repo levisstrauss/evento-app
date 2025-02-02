@@ -1,6 +1,7 @@
 import {twMerge} from "tailwind-merge";
 import clsx, {ClassValue} from "clsx";
-import {EventoEvent} from "@prisma/client";
+import prisma from "@/lib/db";
+import {underline} from "next/dist/lib/picocolors";
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -12,23 +13,27 @@ export function capitalize(string: string) {
 
 
 export async function getEvents(city: string){
-    const response = await fetch(
-        `https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`
-    );
-    const events: EventoEvent[] = await response.json();
-
+    const events = await prisma.eventoEvent.findMany({
+        where: {
+            city: city === "all" ? undefined : capitalize(city),
+        },
+    });
     return events;
 }
 
 
 export async function getEvent(slug: string){
-    const response = await fetch(
-        `https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
-    );
-
-    const event: EventoEvent[] = await response.json();
-    return event
+    const event = await prisma.eventoEvent.findUnique({
+        where: {
+            slug: slug,
+        },
+    });
+    return event;
 }
+
+
+
+
 
 // export async function sleep(ms: number): Promise<void> {
 //     return new Promise(resolve => {
