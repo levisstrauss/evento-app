@@ -17,13 +17,9 @@ export default async function EventPage({params}: EventPageProps) {
 
     const event = await response.json();
 
-    // console.log(data)
-
     return (
         <main>
-
-            <section className=" relative overflow-hidden flex justify-center items-center py-14 md:py-20
-            ">
+            <section className="relative overflow-hidden flex justify-center items-center py-14 md:py-20">
                 <Image
                     className="object-cover z-0 blur-3xl"
                     src={event.imageUrl}
@@ -34,8 +30,7 @@ export default async function EventPage({params}: EventPageProps) {
                     priority
                 />
 
-                <div className=" z-1 flex flex-col gap-6 lg:gap-16 lg:flex-row relative
-                ">
+                <div className=" z-1 flex flex-col gap-6 lg:gap-16 lg:flex-row relative">
                     <Image
                        src={event.imageUrl}
                        alt={event.name}
@@ -56,15 +51,8 @@ export default async function EventPage({params}: EventPageProps) {
                         <H1 className="mb-2 mt-1 whitespace-nowrap lg:text-5xl">
                             {event.name}
                         </H1>
-                        <p className="
-                            whitespace-nowrap
-                            text-xl
-                            text-white/75
-                        ">
-                            Organized by
-                            <span className="italic">
-                                {event.organizerName}
-                            </span>
+                        <p className="whitespace-nowraptext-xltext-white/75">
+                            Organized by<span className="italic">{event.organizerName}</span>
                         </p>
 
                         <button className=" bg-white/20 text-lg capitalize bg-blur mt-5 lg:mt-auto w-[95vw] rounded-md

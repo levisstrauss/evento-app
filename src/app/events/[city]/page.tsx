@@ -17,8 +17,6 @@ export default async function EventsPage({ params }: EventsPageProps) {
 
     const events: EventoEvent[] = await response.json();
 
-
-
     return (
         <main className="flex flex-col items-center py-24 px-[20px] min-h-[110vh]">
             <H1 className="mb-28">
