@@ -26,8 +26,6 @@ export default async function EventPage({params}: Props) {
 
     const event = await getEvent(slug)
 
-    console.log(event)
-
     return (
         <main>
             <section className="relative overflow-hidden flex justify-center items-center py-14 md:py-20">
