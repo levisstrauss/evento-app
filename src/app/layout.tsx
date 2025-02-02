@@ -24,7 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${firaCode.className} bg-gray-950 text-white`}>
+      <body className={`${firaCode.className} 
+      bg-gray-950 text-white overflow-y-scroll`}
+      >
       <Container>
           <Header />
           {children}
