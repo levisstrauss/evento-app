@@ -18,12 +18,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
+export async function generateStaticParams() {
+    // top 100 most popular events
+    return [
+        {
+            slug: "comedy-extravaganza",
+        },
+        {
+            slug: "dj-practice-session",
+        },
+    ];
+}
 
 export default async function EventPage({params}: Props) {
     const slug = params.slug
-
     const event = await getEvent(slug)
-
     return (
         <main>
             <section className="relative overflow-hidden flex justify-center items-center py-14 md:py-20">
