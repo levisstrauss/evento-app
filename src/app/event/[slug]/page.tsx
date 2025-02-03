@@ -11,15 +11,13 @@ type Props = {
 
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-
     const slug = params.slug;
-
     const event = await getEvent(slug);
-
     return {
        title: event.name
     };
 }
+
 
 export default async function EventPage({params}: Props) {
     const slug = params.slug
